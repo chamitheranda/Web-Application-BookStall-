@@ -34,36 +34,32 @@
         <div class="col-1">
             <h2>Who We Are?</h2>
         <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea c
-         ommodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-         officia deserunt mollit anim id est laborum."
+        Bookstall.lk is a website for an extensive collection of books. 
+        Not only a “one-stop shop” for book lovers but also an interactive and innovative destination 
+        designed to make it fun and exciting to discover and shop for new books and gifts online. 
+        Our mission is to help people find and share books they love. 
+        Bookstall.lk is based on Sri Lanka and launched in January 2023."
 
         </p>
         </div>
         <div class="col-1">
         <h2>What We Do?</h2>
         <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea c
-         ommodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-         officia deserunt mollit anim id est laborum."
+        Bookstall.lk is truly a proper combination of the tradition and the modernity that brings the future to the present.
+        It has emerged as a prestigious and the foremost network with rapid development and expansion of it’s business activities both in terms of quality and quantity. 
+        We present a huge collection of Sri Lankan and foreign publications covering an array of multiple disciplines to meet the diverse needs of our wide readership that ranges from little kids to higher academics. 
+        we are trusted sellers of an extensive collection of educational items, and magazines through our network. 
+        In order to maintain the uninterrupted continuity of supply we maintain our own warehouse and printing facilities. 
 
         </p>
         </div>
         <div class="col-1">
         <h2>Why Choose Us?</h2>
         <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea c
-         ommodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-         officia deserunt mollit anim id est laborum."
+        A Few Things You Can Do On Bookstall.lk are as follows;<br>
+        Track the books you're reading, have read, and want to read.<br>
+        Check out your personalized book recommendations. Our recommendation engine analyzes a large amount of data points to give suggestions tailored to your literary tastes.<br>
+        Find out if a book is a good fit for you from our community’s reviews.
 
         </p>
         </div>
@@ -74,15 +70,13 @@
     
         <p>
         <i class="fas fa-quote-left"></i>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-         ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea c
-         ommodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-         officia deserunt mollit anim id est laborum."
+        There's magic in that. 
+        It's in the listener, and for each and every ear it will be different, and it will affect them in ways they can never predict. From the mundane to the profound. 
+        You may tell a tale that takes up residence in someone's soul, becomes their blood and self and purpose. 
+        That tale will move them and drive them and who knows what they might do because of it, because of your words"
 
         </p>
-        <span>-John Deo-</span>
+        <span>-Erin Morgenstern-</span>
         </div>
         <div id="image" class="sec-1">
         <img src="image/img-1.jpg" alt="">
