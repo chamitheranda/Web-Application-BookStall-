@@ -10,10 +10,6 @@
         $userEmail = $_SESSION['uname'];
         $sql1 = "DELETE FROM cart WHERE uEmail = $userEmail";
     }
-
-
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +86,7 @@
             <tr>
                 <th>Book</th>
                 <th>Quantity</th>
-                <th>Unit Price</th>
+               
                 <th>Total</th>
             </tr>
 
@@ -102,7 +98,7 @@
             echo "<tr>
             <td>".$r['bname']."</td>
             <td>".$r['qty']."</td>
-            <td>".$r['bprice']."</td>
+         
             <td>".$subttl."</td>
             <td><input type=\"submit\" name=\"remove\" class=\"remove\" value=\"REMOVE\">
         </tr>";

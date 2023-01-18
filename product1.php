@@ -1,40 +1,56 @@
 <?php
+include "./header.php" ;
 include "dbconnection.php";
-include "./sessions.php";
 
-$bookName = $_REQUEST['name'];
-  $sql1 = "SELECT * FROM featured WHERE name='" . $bookName . "' ";
+$price= "" ;
+
+if(isset($_POST['price'])){
+  $price = $_POST['price'];
+}
+
+  $bookName = $_REQUEST['name'];
+  $sql1 = "SELECT * FROM books WHERE title ='" . $bookName . "' ";
   $stmt1 = $con->prepare($sql1);
   $stmt1->execute();
   $list = $stmt1->fetch();
-  $img = $list['img'];
-  $name = $list['name'];
-  $price = $list['current_price'];
-  $priceFormatted = (int)str_replace('$', '', $price);
-  $discription = $list['discription'];
+  $img = $list['picture'];
+  $name = $list['title'];
+  $price = $list['Price'];
+  $priceFormatted = (float)str_replace('$', '', $price);
+  $discription = $list['Description'];
 
 if(isset($_REQUEST["add-to-cart"])) {
   if(!$_REQUEST["qty"]) {
     echo "<script type='text/javascript'>alert('Please select quantity');</script>";
+    
   } else {
-    $bname = $_REQUEST['name'];
-    $qty = $_REQUEST['qty'];
+    $sql3 = "SELECT * FROM cart WHERE bname ='$name'";
+    $stmt3 = $con->prepare($sql3);
+    $stmt3->execute();
+    $list2 = $stmt3->fetch();
+    
+    if(is_array($list2)) {
+      $oldQty = $list2['qty'];
+    } else {
+      $oldQty = 0;
+    }
 
+    $currentQty = (int)$_REQUEST['qty'];
+    $newQty=$oldQty+$currentQty;
     $userEmail = $_SESSION["useremail"];
 
-    $sql = "SELECT EXISTS (SELECT * FROM cart WHERE userEmail='$userEmail' AND bname='$bname') FROM cart";
+    $sql = "SELECT EXISTS (SELECT * FROM cart WHERE userEmail='$userEmail' AND bname='$name') FROM cart";
     $stmt = $con->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll();
-    //var_dump($result[0][0]);
     
     if ($_SESSION['useremail']) {
       if ((int)$result[0][0]) {
-        $sql22 = "UPDATE cart SET qty = '$qty'  WHERE bname ='$bname' AND userEmail='$userEmail'";
+        $sql22 = "UPDATE cart SET qty = '$newQty'  WHERE bname ='$name' AND userEmail='$userEmail'";
         $stmt22 = $con->prepare($sql22);
         $stmt22->execute();
       } else {
-        $sql23 = "INSERT INTO cart (bname, bprice, qty,userEmail) VALUES ('$bname', '$priceFormatted', '$qty','$userEmail')";
+        $sql23 = "INSERT INTO cart (bname, bprice, qty,userEmail) VALUES ('$name', '$priceFormatted', '$currentQty','$userEmail')";
         $stmt23 = $con->prepare($sql23);
         $stmt23->execute();
       }
@@ -52,14 +68,12 @@ if (isset($_REQUEST["submit"])) {
   $stmt3 = $con->prepare($sql3);
   $stmt3->execute();
 }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!<head>
   <title>BookStall</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,7 +100,7 @@ if (isset($_REQUEST["submit"])) {
 </head>
 
 <body>
-  <header class="header">
+  <!--<header class="header">
     <div class="header-1">
       <a href="#featured" class="logo"> <img src="image/logo.png" alt="" width="300" height="80"> </a>
       <form action="" class="search-form-x">
@@ -113,7 +127,7 @@ if (isset($_REQUEST["submit"])) {
 
       </nav>
     </div>
-  </header>
+  </header> -->
 
   <section class="bg-sand padding-large">
     <div class="container">
