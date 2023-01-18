@@ -1,3 +1,62 @@
+<?php include "./cookie.php";
+
+
+if (isset($_REQUEST['signin-btn'])) {
+
+    include "dbconnection.php";
+    $email = $_REQUEST['email'];
+    $pswd = $_REQUEST['pswd'];
+    $sql15 = "SELECT id FROM user WHERE pass ='$pswd' AND mail ='$email' ";
+    
+    $stmt = $con->prepare($sql15);
+    $stmt->execute();
+    $result = $stmt->fetchall();
+    print_r($result);
+    if ($result) {
+        $_SESSION["useremail"] = $email;
+        $_SESSION["pass"] = $pswd;
+        setcookie("usr_id", $result[0]["id"], time() + (86400 * 30 ), "/");
+
+        echo '<script>window.location.replace("./index.php");</script>';
+        die();
+    } else {
+        
+        echo "<script>alert('Invalid login details!')</script>";
+    }
+}
+
+if (isset($_REQUEST["validate"])) {
+    if (isset($_COOKIE["usr_id"])) {
+       // var_dump($_COOKIE["usr_id"]);
+        include "./dbconnection.php";
+        $uid = $_COOKIE["usr_id"];
+        include "./sessions.php";
+        $sql15 = 'SELECT * FROM user where id="$uid"';
+        $stmt15 = $con->prepare($sql15);
+        $stmt15->execute();
+        $result = $stmt15->fetchAll();
+        if (
+            $stmt15->rowcount()
+            > 0
+        ) {
+            $_SESSION["useremail"] = $result["mail"];
+            $_SESSION["pass"] = $result["pass"];
+        }
+
+
+        echo '<script>window.location.replace("./index.php");</script>';
+        die();
+    }
+}
+if (isset($_COOKIE["usr_id"])) {
+   // var_dump($_COOKIE["usr_id"]);
+
+    echo '<script>window.location.replace("./udasd/dashboard.php");</script>';
+    die();
+}
+
+?>
+
 <html lang="en">
 
 <head>
@@ -14,7 +73,7 @@
 
 <body>
     <div class="login-form-container">
-        <form action="">
+        <form action="./signin.php" method="POST">
             <h3>sign in</h3>
             <span>username</span>
             <input type="email" name="email" class="box" placeholder="enter your email" id="">
@@ -32,26 +91,7 @@
 
     <script src="js/signup.js"></script>
     </div>
-    <?php
-    include "./sessions.php";
-    if (isset($_REQUEST['signin-btn'])) {
-        include "dbconnection.php";
-        $email = $_REQUEST['email'];
-        //echo $email ;
-        $pswd = $_REQUEST['pswd'];
-        //echo $pswd ;
-        $sql15 = "SELECT count(userID) FROM user WHERE password ='$pswd' AND email ='$email' ";
-        $stmt15 = $con->prepare($sql15);
-        $result = $stmt15->execute();
-        if ($result) {
-            $_SESSION["useremail"] = $email;
-            $_SESSION["pass"] = $pswd;
-            echo '<script>window.location.replace("./index.php");</script>';
-        } else {
-            echo "<span id='logVal'> </span>";
-        }
-    }
-    ?>
+
     <script>
         function signUpValidation() {
             document.getElementById('logVal').innerHTML = alert("password and email not match !!!");

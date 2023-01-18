@@ -1,14 +1,13 @@
-
-
-
 <header class="header">
 
     <div class="header-1">
 
-        <a href="#" class="logo"> <img src="image/logo.png" alt="" width="300" height="80"> </a>
+        <a href="./index.php" class="logo"> <img src="image/logo.png" alt="" width="300" height="80"> </a>
 
-        <form action="" class="search-form">
-            <input type="search" name="" placeholder="search here..." id="search-box">
+        <form action="./shop.php" class="search-form">
+            <input type="search" name="search-q" placeholder="search here..." id="search-box" value="<?php if (isset($_REQUEST["search-q"])) {
+                                                                                                            echo $_REQUEST["search-q"];
+                                                                                                        }; ?>">
             <label for="search-box" class="fas fa-search"></label>
         </form>
 
@@ -16,8 +15,7 @@
             <div id="search-btn" class="fas fa-search"></div>
             <a href="#" class="fas fa-heart"></a>
             <a href="shopping-cart.php" class="fas fa-shopping-cart"></a>
-            <div id="login-btn" class="fas fa-user"></div>
-            <a href="logout.php" >| logout</a>
+            <a href="signin.php"><div id="login-btn" class="fas fa-user"></div></a>
         </div>
 
     </div>
@@ -31,7 +29,7 @@
 
         </nav>
     </div>
-    
+
 
 </header>
 <!--
@@ -47,9 +45,9 @@
 
 <div class="login-form-container">
 
-    <div id="close-login-btn" class="fas fa-times"></div>
-
-    <form action="">
+<!--     <div id="close-login-btn" class="fas fa-times"></div>
+ -->
+    <!-- <form action="">
         <h3>sign in</h3>
         <span>username</span>
         <input type="email" name="" class="box" placeholder="enter your email" id="">
@@ -63,11 +61,10 @@
         <p>forget password ? <a href="#">click here</a></p>
         <p>don't have an account ? <a href="#">create one</a></p>
     </form>
-
+ -->
 </div>
 
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <script src="js/script.js"></script>
-

@@ -86,7 +86,7 @@ if (isset($_REQUEST["submit"])) {
 </head>
 
 <body>
-  <header class="header">
+  <!-- <header class="header">
     <div class="header-1">
       <a href="#featured" class="logo"> <img src="image/logo.png" alt="" width="300" height="80"> </a>
       <form action="" class="search-form-x">
@@ -113,8 +113,9 @@ if (isset($_REQUEST["submit"])) {
 
       </nav>
     </div>
-  </header>
+  </header> -->
 
+  <?php include "./header.php" ?>
   <section class="bg-sand padding-large">
     <div class="container">
       <div class="row">

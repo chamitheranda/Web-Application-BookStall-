@@ -1,0 +1,48 @@
+.breadcrumb{
+    padding: 10px 16px;
+    list-style: none;
+    
+  }
+ 
+  .breadcrumb li{
+    display: inline;
+    font-size: 1.5rem;
+  }
+  
+
+.breadcrumb li+li:before{
+    padding: 8px;
+    color: black;
+    content: ">\00a0";
+  }
+  
+ 
+.breadcrumb li a{
+    color: #8b8c8d;
+    text-decoration: none;
+  } 
+  
+  
+  .breadcrumb li a:hover{
+    color: #f3cd5e;
+   
+  }
+
+
+  .row{
+    display: flex;
+    font-size: 1.5rem;
+  }
+
+  #product-detail{
+    padding: 5rem;
+  }
+
+  #product-detail p{
+    padding: 3rem 0;
+  }
+
+  .price-colored{
+    color: #8b8c8d;
+  }
+
