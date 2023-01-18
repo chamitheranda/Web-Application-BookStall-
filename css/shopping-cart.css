@@ -1,0 +1,150 @@
+:root{
+    --yellow:#fadc59;
+    --dark-color:#3f1103;
+    --black:#444;
+    --light-color:#666;
+    --border:.1rem solid rgba(0,0,0,.1);
+    --border-hover:.1rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+.breadcrumb{
+    padding: 10px 16px;
+    list-style: none;
+    
+  }
+ 
+  .breadcrumb li{
+    display: inline;
+    font-size: 1.5rem;
+  }
+  
+
+.breadcrumb li+li:before{
+    padding: 8px;
+    color: black;
+    content: ">\00a0";
+  }
+  
+ 
+.breadcrumb li a{
+    color: #8b8c8d;
+    text-decoration: none;
+  } 
+  
+  
+  .breadcrumb li a:hover{
+    color: #f3cd5e;
+   
+  }
+  
+.cart-section{
+    display:flex;
+    font-size: 1.7rem;
+    padding: 5% 10% 20%;
+   
+}
+
+.col-1{
+    flex: 50%;
+    text-align: left;
+    flex-wrap: wrap;
+    gap:1.5rem;
+    align-content: center;
+}
+
+.col-1 table{
+    padding: 1.5rem;
+}
+
+.col-1 table th{
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.col-1 table td{
+
+    padding:  2rem 10rem;
+    text-align: center;
+}
+
+.cart-btn{
+    display:flex;
+    font-size: 1.7rem;
+    padding: 5% 10% 20%;
+   
+}
+
+.btn-1{
+    flex:50%;
+    text-align: left;
+    flex-wrap: wrap;
+    gap:1.5rem;
+    align-content: center;
+    
+}
+
+.cart{
+   
+   padding: 1.2rem;
+   border-radius: 20px;
+}
+
+
+.cart:hover{
+    background: #444;
+    color: #fff;
+}
+
+.coupan-form{
+    background:#fff;
+    border:var(--border);
+    width:40rem;
+    padding:2rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    margin:2rem;
+}
+
+.discount{
+    border: 1px rgb(203, 202, 202) solid;
+    padding: .5rem;
+    border-radius: 20px;
+}
+
+.apply{
+    padding: .5rem;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 30%;
+}
+
+.apply:hover{
+    background: #444;
+    color: #fff;
+   
+}
+
+
+.checkout-block{
+    background:rgb(220, 218, 218);
+    border:var(--border);
+    width:40rem;
+    padding:2rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    margin:2rem;
+}
+
+.checkout-block button{
+    width: 100%;
+    cursor: pointer;
+    margin: 5px;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.checkout-block button:hover{
+    background: #444;
+    color: #fff;
+}
