@@ -112,7 +112,7 @@ $list2 = $stmt2->fetchAll();
 
             <div class="content">
                 <h3>upto 50% off</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam deserunt nostrum accusamus. Nam alias sit necessitatibus, aliquid ex minima at!</p>
+                <p>Don't miss out on our amazing offers. <br>Check out our exclusive offers - only for a limited time period!</p>
                 <a href="#featured" class="btn">shop now</a>
             </div>
 
@@ -362,7 +362,7 @@ $list2 = $stmt2->fetchAll();
         <div class="content">
             <h3>seasonal offer</h3>
             <h1>upto 50% off</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde perspiciatis in atque dolore tempora quaerat at fuga dolorum natus velit.</p>
+            <p>Don't miss out on our amazing offers.<br> Check out our exclusive offers - valid till 31st January. <br>Hurry up!</p>
             <a href="#featured" class="btn">shop now</a>
         </div>
 
