@@ -1,0 +1,97 @@
+
+
+
+.breadcrumb{
+    padding: 10px 16px;
+    list-style: none;
+    
+  }
+ 
+  .breadcrumb li{
+    display: inline;
+    font-size: 1.5rem;
+  }
+  
+
+.breadcrumb li+li:before{
+    padding: 8px;
+    color: black;
+    content: ">\00a0";
+  }
+  
+ 
+.breadcrumb li a{
+    color: #8b8c8d;
+    text-decoration: none;
+  } 
+  
+  
+  .breadcrumb li a:hover{
+    color: #f3cd5e;
+   
+  }
+
+
+.banner-img img{
+   margin-top: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+#image img{
+    width: 100%;
+}
+
+#para i{
+    color: rgb(87, 8, 8);
+    font-size: 3rem;
+    
+}
+
+.buyer-review{
+    display: flex;
+    background-color: rgb(246, 232, 107);
+    margin-bottom: 20px;
+}
+
+.buyer-review .sec-1{
+    flex: 2;
+    
+}
+
+.buyer-review p{
+    max-width: 45rem;
+    margin-right: auto;
+    text-align: center;
+    padding:8rem 3rem 1rem;
+    font-size: 1.7rem;
+    margin-left: 15rem;
+    font-style: italic;
+    
+}
+
+.buyer-review span{
+    font-size: 1.2rem;
+    margin-left: 33rem;
+    color: rgb(94, 91, 91);
+    font-weight: bold;
+}
+
+.about-us{
+    display: flex;
+    padding: 3rem 8rem;
+}
+
+.col-1 {
+    flex: 3;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.col-1 p{
+    color: rgb(148, 153, 153);
+}
+
+
