@@ -1,6 +1,6 @@
 <?php
-if(isset($_COOKIE["admin-id"])){
-    setcookie("admin_id", "", time() - 3600, "/admin");
+if(isset($_COOKIE["admin_id"])){
+    setcookie("admin_id", "", time() - 3600, "/");
     session_destroy();
     
 }

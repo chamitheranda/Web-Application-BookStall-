@@ -1,5 +1,5 @@
-<?php include "./cookie.php";
-
+<?php
+include "./sessions.php";
 
 if (isset($_REQUEST['signin-btn'])) {
 
@@ -11,14 +11,15 @@ if (isset($_REQUEST['signin-btn'])) {
     $stmt = $con->prepare($sql15);
     $stmt->execute();
     $result = $stmt->fetchall();
+    var_dump($result);
     if ($result) {
         $_SESSION["_admin_name"] = $result[0]["name"];
         $_SESSION["_admin_id"] = $result[0]["id"];
         $_SESSION["_admin_mail"] = $email;
-        setcookie("admin_id", $result[0]["id"], time() + (86400 * 30), "/admin");
+        setcookie("admin_id", $result[0]["id"], time() + (86400 * 30), "/");
 
         echo '<script>window.location.replace("./index.php");</script>';
-        die();
+        //die();
     } else {
 
         echo "<script>alert('Invalid login details!')</script>";
@@ -27,10 +28,14 @@ if (isset($_REQUEST['signin-btn'])) {
 
 if (isset($_COOKIE["admin_id"])) {
     // var_dump($_COOKIE["usr_id"]);
+    if ($_COOKIE["admin_id"] == $_SESSION["_admin_id"]) {
 
-    echo '<script>window.location.replace("./index.php");</script>';
+        echo '<script>window.location.replace("./index.php");</script>';
+    }
     die();
 }
+
+
 
 ?>
 
