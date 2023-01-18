@@ -1,11 +1,7 @@
 <?php
-
-include 'dbconnection.php';
-
-session_start();
-session_unset();
-session_destroy();
-
-header('location:index.php');
-
-?>
+if(isset($_COOKIE["usr_id"])){
+    setcookie("usr_id", "", time() - 3600, "/");
+    session_destroy();
+    
+}
+echo "<script>window.location = './signin.php';</script>";
