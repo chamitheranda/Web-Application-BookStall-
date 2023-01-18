@@ -4,4 +4,4 @@ if(isset($_COOKIE["admin_id"])){
    // session_destroy();
     
 }
-echo "<script>window.location = '../signin.php';</script>";
+echo "<script>window.location = '/';</script>";
