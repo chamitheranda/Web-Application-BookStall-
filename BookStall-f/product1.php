@@ -3,31 +3,31 @@ include "dbconnection.php";
 include "./sessions.php";
 
 $bookName = $_REQUEST['name'];
-  $sql1 = "SELECT * FROM featured WHERE name='" . $bookName . "' ";
-  $stmt1 = $con->prepare($sql1);
-  $stmt1->execute();
-  $list = $stmt1->fetch();
-  $img = $list['img'];
-  $name = $list['name'];
-  $price = $list['current_price'];
-  $priceFormatted = (int)str_replace('$', '', $price);
-  $discription = $list['discription'];
+$sql1 = "SELECT * FROM featured WHERE name='" . $bookName . "' ";
+$stmt1 = $con->prepare($sql1);
+$stmt1->execute();
+$list = $stmt1->fetch();
+$img = $list['img'];
+$name = $list['name'];
+$price = $list['current_price'];
+$priceFormatted = (int)str_replace('$', '', $price);
+$discription = $list['discription'];
 
-if(isset($_REQUEST["add-to-cart"])) {
-  if(!$_REQUEST["qty"]) {
+if (isset($_REQUEST["add-to-cart"])) {
+  if (!$_REQUEST["qty"]) {
     echo "<script type='text/javascript'>alert('Please select quantity');</script>";
   } else {
     $bname = $_REQUEST['name'];
     $qty = $_REQUEST['qty'];
 
     $userEmail = $_SESSION["useremail"];
-
+    //var_dump($username);
     $sql = "SELECT EXISTS (SELECT * FROM cart WHERE userEmail='$userEmail' AND bname='$bname') FROM cart";
     $stmt = $con->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll();
     //var_dump($result[0][0]);
-    
+
     if ($_SESSION['useremail']) {
       if ((int)$result[0][0]) {
         $sql22 = "UPDATE cart SET qty = '$qty'  WHERE bname ='$bname' AND userEmail='$userEmail'";
@@ -131,14 +131,14 @@ if (isset($_REQUEST["submit"])) {
             <p>
               <?php echo $discription; ?>
             </p>
-          
 
-        <form method="post" name="addToCart" >
-            <input type="number" min="0" max="15" placeholder="select quantity" style="width: 150px;" name="qty" id="qty-enter">
-            <br>
-            <button type="submit" name="add-to-cart" class="button" id="add-cart-itm" onClick="validateAddToCart()" >Add to cart</button>
+
+            <form method="post" name="addToCart">
+              <input type="number" min="0" max="15" placeholder="select quantity" style="width: 150px;" name="qty" id="qty-enter">
+              <br>
+              <button type="submit" name="add-to-cart" class="button" id="add-cart-itm" onClick="validateAddToCart()">Add to cart</button>
             </form>
-            </div>
+          </div>
         </div>
 
       </div>
@@ -258,23 +258,21 @@ if (isset($_REQUEST["submit"])) {
     let email = "";
     let oldQty = "";
     let allQty = 0;
-    
   </script>
 
-<script type="text/javascript">
-              function validateAddToCart() {
-                        if(!$qty){
-                          alert ('please select the quantity !');
-                        }else{
-                          alert ('items added to cart sucessfully !');
+  <script type="text/javascript">
+    function validateAddToCart() {
+      if (!$qty) {
+        alert('please select the quantity !');
+      } else {
+        alert('items added to cart sucessfully !');
 
 
-                          
-                        }
-                       
-                      }
 
-            </script>
+      }
+
+    }
+  </script>
 </body>
 
 </html>

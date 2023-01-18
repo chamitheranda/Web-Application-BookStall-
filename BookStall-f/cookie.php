@@ -4,7 +4,7 @@ include "./sessions.php";
 if (isset($_COOKIE["usr_id"])) {
     include "./dbconnection.php";
     $id = $_COOKIE["usr_id"];
-    $sql = "select id from user where status = 1 and id=$id;";
+    $sql = "select mail, pass from user where status = 1 and id=$id;";
     $stmt = $con->prepare($sql);
     $stmt->execute();
     $list = $stmt->fetchall();
@@ -14,5 +14,8 @@ if (isset($_COOKIE["usr_id"])) {
         $_SESSION["pass"] = "";
         echo "<script>window.location = './signin.php';<script>";
         die();
+    } else {
+        $_SESSION["useremail"] = $list[0]["mail"];
+        $_SESSION["pass"] = $list[0]["pass"];
     }
 }

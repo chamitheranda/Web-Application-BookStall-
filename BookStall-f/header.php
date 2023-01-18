@@ -1,5 +1,5 @@
 <header class="header">
-
+<?php include "./cookie.php"; ?>
     <div class="header-1">
 
         <a href="./index.php" class="logo"> <img src="image/logo.png" alt="" width="300" height="80"> </a>

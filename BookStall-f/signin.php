@@ -11,7 +11,6 @@ if (isset($_REQUEST['signin-btn'])) {
     $stmt = $con->prepare($sql15);
     $stmt->execute();
     $result = $stmt->fetchall();
-    print_r($result);
     if ($result) {
         $_SESSION["useremail"] = $email;
         $_SESSION["pass"] = $pswd;
