@@ -1,15 +1,22 @@
 <?php
     include "dbconnection.php";
 
-    $sql = "SELECT bname,bprice,qty FROM cart";
+    $sql = "SELECT bname,price,quantity,orders,unit_price FROM cart;";
     $stmt = $con->prepare($sql);
     $stmt->execute();
     $list = $stmt->fetchAll();
 
     if(isset($_REQUEST['clear'])){
-        $userEmail = $_SESSION['uname'];
+        $userEmail = $_SESSION['email'];
         $sql1 = "DELETE FROM cart WHERE uEmail = $userEmail";
     }
+
+    if(isset($_REQUEST['remove'])){
+        $userEmail = $_SESSION['email'];
+        $sql1 = "DELETE FROM cart WHERE uEmail = $userEmail";
+    }
+
+    
 
 
     
@@ -90,7 +97,6 @@
             <tr>
                 <th>Book</th>
                 <th>Quantity</th>
-                <th>Unit Price</th>
                 <th>Total</th>
             </tr>
 
@@ -98,11 +104,10 @@
         $total = 0;
 
         foreach($list as $r){
-            $subttl = $r['bprice']*$r['qty'];
+            $subttl = $r['unit_price']*$r['quantity'];
             echo "<tr>
             <td>".$r['bname']."</td>
-            <td>".$r['qty']."</td>
-            <td>".$r['bprice']."</td>
+            <td>".$r['quantity']."</td>
             <td>".$subttl."</td>
             <td><input type=\"submit\" name=\"remove\" class=\"remove\" value=\"REMOVE\">
         </tr>";
