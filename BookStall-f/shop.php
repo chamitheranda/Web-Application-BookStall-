@@ -7,19 +7,23 @@ $search_q = "";
 
 $start = 0;
 
+$nav_bar_req = "";
+
 if (isset($_REQUEST["s"])) {
     $start = $_REQUEST["s"];
-} 
+}
 
 $records_per_page = 6;
 $end = $start + $records_per_page;
 
 if (isset($_REQUEST["cat"])) {
     $cat_res = $_REQUEST["cat"];
+    $nav_bar_req = "cat";
 }
 
 if (isset($_REQUEST["search-q"])) {
     $search_q = $_REQUEST["search-q"];
+    $nav_bar_req = "search-q";
 }
 
 $sql = "SELECT title, Picture, Price FROM books;";
@@ -93,16 +97,20 @@ $nav_links = ($rows - ($rows % $records_per_page)) / $records_per_page;
             if (isset($_REQUEST["p"])) {
                 $temp = abs($_REQUEST["p"]);
                 $ss = (((abs($temp) - 1)) * $records_per_page);
-                $sql = "SELECT title, Picture, Price FROM books limit $ss, $records_per_page";
             } else {
-                $sql = "SELECT title, Picture, Price FROM books limit $start, $records_per_page";
+                $ss =  $start;
             }
+            $sql = "SELECT title, Picture, Price FROM books limit $ss, $records_per_page";
+            $nav_bar_extra = "";
             if ($cat_res) {
-                $sql = "SELECT title, Picture, Price FROM books where Categories = $cat_res;";
+                $sql = "SELECT title, Picture, Price FROM books where Categories = $cat_res limit $ss, $records_per_page;";
+                $nav_bar_extra = $cat_res;
             }
             if ($search_q) {
-                $sql = "SELECT title, Picture, Price FROM books WHERE title LIKE '%$search_q%' ";
+                $sql = "SELECT title, Picture, Price FROM books WHERE title LIKE '%$search_q%' limit $ss, $records_per_page";
+                $nav_bar_extra = $search_q;
             }
+
 
             $stmt = $con->prepare($sql);
             $stmt->execute();
@@ -143,17 +151,19 @@ $nav_links = ($rows - ($rows % $records_per_page)) / $records_per_page;
     </div>
 
     <div class="book-view-nav">
-        <?php if ($start > 0) { ?>
+        <?php if (($start > 0) && ($total_rows > $records_per_page)) { ?>
+
             <a href="shop.php?s=<?php echo ($start - 6); ?>">BACK&nbsp&nbsp&nbsp</a>
         <?php
         }
-
-        for ($i = 1; $i < $nav_links; $i++) {
-            echo "<script>console.log(152)</script>";
-            echo "<a href='shop.php?p=" . $i . "'>$i</a>&nbsp&nbsp&nbsp";
+        if ($total_rows > $records_per_page) {
+            for ($i = 1; $i <= $nav_links; $i++) {
+                echo "<script>console.log(152)</script>";
+                echo " <a href='shop.php?p=" . $i . "'>$i</a>&nbsp&nbsp&nbsp";
+            }
         }
         ?>
-        <?php if ($end < $nav_links * 6) { ?>
+        <?php if (($end < $nav_links * 6) && ($total_rows > $records_per_page)) { ?>
             <a href="shop.php?s=<?php echo $end; ?>">NEXT</a>
         <?php
         }
