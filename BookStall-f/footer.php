@@ -27,7 +27,7 @@
             <h3>quick links</h3>
             <a href="#"> <i class="fas fa-arrow-right"></i> admin login </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> buyer login </a>
-            <a href="#"> <i class="fas fa-arrow-right"></i> register </a>
+            <a href="signup.php"> <i class="fas fa-arrow-right"></i> register </a>
         
         </div>
 
