@@ -1,7 +1,7 @@
 <?php
 include("dbconnection.php");
 
-$sql = "SELECT img FROM offer;";
+$sql = "SELECT * FROM offer;";
 $stmt = $con->prepare($sql);
 $stmt->execute();
 $list = $stmt->fetchAll();
@@ -33,75 +33,16 @@ $list2 = $stmt2->fetchAll();
 <body>
 <?php include "./header.php" ?>
 
-    <!-- header start -->
-
-    <!-- <header class="header">
-    <div class="header-1">
-        <a href="./index.php" class="logo"> <img src="image/logo.png" alt="" width="300" height="80"> </a>
-        <form action="./shop.php" class="search-form">
-            <input type="search" name="" placeholder="search here..." id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-        <div class="icons">
-            <div id="search-btn" class="fas fa-search"></div>
-            <a href="#" class="fas fa-heart"></a>
-            <a href="shopping-cart.php" class="fas fa-shopping-cart"></a>
-            <a href="signin.php"><div id="login-btn" class="fas fa-user"></div></a>
-        </div>
-    </div>
-    <div class="header-2">
-        <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="product.php">product</a>
-            <a href="about.php">about</a>
-            <a href="contact.php">contact</a>
-        </nav>
-    </div>
-    
-</header> -->
-
-    <!-- header ENDS
- -->
     <div class="login-form-container"></div>
 
     <div id="close-login-btn"></div>
-
-    <!--
-<nav class="bottom-navbar">
-    <a href="#home" class="fas fa-home"></a>
-    <a href="#featured" class="fas fa-list"></a>
-    <a href="#arrivals" class="fas fa-tags"></a>
-    <a href="#reviews" class="fas fa-comments"></a>
-    <a href="#blogs" class="fas fa-blog"></a>
-</nav>
--->
-    <!-- login form  -->
-    <!-- 
-    <form action="">
-        <h3>sign in</h3>
-        <span>username</span>
-        <input type="email" name="" class="box" placeholder="enter your email" id="">
-        <span>password</span>
-        <input type="password" name="" class="box" placeholder="enter your password" id="">
-        <div class="checkbox">
-            <input type="checkbox" name="" id="remember-me">
-            <label for="remember-me"> remember me</label>
-        </div>
-        <input type="submit" value="sign in" class="btn">
-        <p>forget password ? <a href="#">click here</a></p>
-        <p>don't have an account ? <a href="#" id="signup-btn">create one</a></p>
-    </form>
-</div>
--->
-    <!-- home section starts  -->
-
     <section class="home" id="home">
 
         <div class="row">
 
             <div class="content">
                 <h3>upto 50% off</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam deserunt nostrum accusamus. Nam alias sit necessitatibus, aliquid ex minima at!</p>
+                <p>Don't miss out on our amazing offers. <br>Check out our exclusive offers - only for a limited time period!</p>
                 <a href="#featured" class="btn">shop now</a>
             </div>
 
@@ -109,7 +50,8 @@ $list2 = $stmt2->fetchAll();
                 <div class="swiper-wrapper">
                     <?php
                     foreach ($list as $r) {
-                        echo "<a href=\"#\"class=\"swiper-slide\"><img src=\"" . $r["img"] . "\"alt=\"\"></a>";
+
+                        echo "<a href=\"#\"class=\"swiper-slide\"><img src=\"" . $r["img"] . "\" ></a>";
                     }
 
                     ?>
@@ -351,7 +293,7 @@ $list2 = $stmt2->fetchAll();
         <div class="content">
             <h3>seasonal offer</h3>
             <h1>upto 50% off</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde perspiciatis in atque dolore tempora quaerat at fuga dolorum natus velit.</p>
+            <p>Don't miss out on our amazing offers.<br> Check out our exclusive offers - valid till 31st January. <br>Hurry up!</p>
             <a href="#featured" class="btn">shop now</a>
         </div>
 

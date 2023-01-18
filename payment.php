@@ -10,6 +10,8 @@
         <script src="js/paymentvalidation.js"></script>
     </head>
     <body>
+        <?php include 'header.php'; ?>
+        <!--
         <header class="header">
 
             <div class="header-1">
@@ -40,20 +42,24 @@
             </div>
 
 
-        </header>
+        </header> -->
         <div class="row">
             <div class="col-75">
                 <div class="container">
-                <form action="/action_page.php" name="form1">     
+                <form action="" onsubmit=" return validateForm()" name="form1">     
                     <div class="row">
                         <div class="col-50">
                             <h3>Billing Address</h3>
-                            <label for="fname" id="label1"><i class="fa fa-user"></i> Full Name</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Mr.Rathnayaka">
+                            <label for="fname" id="label1"><i class="fa fa-user"></i> Name</label>
+                            <input type="text" id="name" name="firstname" placeholder="Mr.Rathnayaka" onchange="validateName()" required>
+                            <p id="nameError"></p>
+                            
                             <label for="email" id="label2"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" placeholder="rathnayaka@gmail.com">
+                            <input type="text" id="email" name="email" placeholder="rathnayaka@gmail.com" onchange="validateEmail()" required>
+                            <p id="emailError"></p>
                             <label for="adr" id="label3"><i class="fa fa-address-card-o"></i> Address</label>
-                            <input type="text" id="adr" name="address" placeholder="No:12 , Colombo Road , Galle .">
+                            <input type="text" id="adr" name="address" placeholder="No:12 , Colombo Road , Galle ." onchange="validateAddress()" required>
+                            <p id="addressError"></p>
                             <label for="city" id="label4"><i class="fa fa-institution"></i> City</label>
                             <input type="text" id="city" name="city" placeholder="Galle">
 
@@ -79,9 +85,12 @@
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
             <label for="cname" id="label5">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="Visa/Master" onkeydown="validatecard()">
+            <input type="text" id="cname" name="cardname" placeholder="Visa/Master" >
             <label for="ccnum" id="label6">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" onchange="validateCardNumber()" required>
+            <p id="cardNumberError"></p>
+
             <label for="expmonth" id="label7">Exp Month</label>
             <input type="text" id="expmonth" name="expmonth" placeholder="September">
             <div class="row">
@@ -91,7 +100,8 @@
               </div>
               <div class="col-50">
                 <label for="cvv" id="label9">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
+                <input type="text" id="cvv" name="cvv" placeholder="352" onchange="validateCvvNumber()" required>
+                <p id="cvvNumberError"></p>
               </div>
             </div>
           </div>
