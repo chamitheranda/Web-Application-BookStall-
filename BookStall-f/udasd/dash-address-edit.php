@@ -110,6 +110,7 @@ if ($_SESSION["_usr_address"] != $usr_new_address) {
 
 
                                                 <li>
+                                                <a href="./logout.php">Log out</a>
 
                                                 </li>
 

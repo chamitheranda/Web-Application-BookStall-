@@ -86,6 +86,7 @@
 
 
                                                 <li>
+                                                <a href="./logout.php">Log out</a>
 
                                                 </li>
 

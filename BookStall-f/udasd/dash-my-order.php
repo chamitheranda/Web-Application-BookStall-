@@ -91,6 +91,7 @@ $result = $conn->query($sql);
                                                 </li>
 
                                                 <li class="dash-active">
+                                                    <a href="./logout.php">Log out</a>
 
                                                     <a href="dash-my-order.php">My Orders</a>
                                                 </li>
@@ -133,7 +134,7 @@ $result = $conn->query($sql);
                                                         echo '<div class="manage-o__text u-c-silver">Placed on ' . $row["date"] . '</div>';
                                                         echo '</div><div></div></div></div>';
 
-                                                        $sql1 = 'SELECT books.title, transactions.qty, books.price FROM books INNER JOIN transactions ON books.id = transactions.book where transactions.id='.$row["id"];
+                                                        $sql1 = 'SELECT books.title, transactions.qty, books.price FROM books INNER JOIN transactions ON books.id = transactions.book where transactions.id=' . $row["id"];
                                                         $result1 = $conn->query($sql1);
                                                         if ($result1->num_rows > 0) {
                                                             while ($row1 = $result1->fetch_assoc()) {
