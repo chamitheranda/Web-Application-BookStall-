@@ -5,11 +5,11 @@ include "dbconnection.php";
 $cat_res = "";
 $search_q = "";
 
+$start = 0;
+
 if (isset($_REQUEST["s"])) {
     $start = $_REQUEST["s"];
-} else {
-    $start = 0;    
-}
+} 
 
 $records_per_page = 6;
 $end = $start + $records_per_page;
@@ -35,7 +35,6 @@ $sql_cat = "SELECT * FROM categories where status=1;";
 $stmt_cat = $con->prepare($sql_cat);
 $stmt_cat->execute();
 $cats = $stmt_cat->fetchall();
-
 $nav_links = ($rows - ($rows % $records_per_page)) / $records_per_page;
 
 ?>
@@ -107,11 +106,12 @@ $nav_links = ($rows - ($rows % $records_per_page)) / $records_per_page;
 
             $stmt = $con->prepare($sql);
             $stmt->execute();
+            $list = $stmt->fetchall();
+
             $rows = $stmt->rowcount();
 
             $run_t = 0;
 
-            $list = $stmt->fetchall();
             if ($rows < 1 && $cat_res) {
                 echo "<div><h1>No books in this category.</h1></div>";
             } else if ($rows < 1 && $search_q) {
@@ -143,16 +143,16 @@ $nav_links = ($rows - ($rows % $records_per_page)) / $records_per_page;
     </div>
 
     <div class="book-view-nav">
-        <?php if ($start != 0) { ?>
+        <?php if ($start > 0) { ?>
             <a href="shop.php?s=<?php echo ($start - 6); ?>">BACK&nbsp&nbsp&nbsp</a>
         <?php
         }
 
         for ($i = 1; $i < $nav_links; $i++) {
+            echo "<script>console.log(152)</script>";
             echo "<a href='shop.php?p=" . $i . "'>$i</a>&nbsp&nbsp&nbsp";
         }
         ?>
-
         <?php if ($end < $nav_links * 6) { ?>
             <a href="shop.php?s=<?php echo $end; ?>">NEXT</a>
         <?php
