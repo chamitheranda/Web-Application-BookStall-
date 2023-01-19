@@ -16,6 +16,7 @@ if(isset($_POST['price'])){
   $img = $list['picture'];
   $name = $list['title'];
   $price = $list['Price'];
+  $author=$list['Author'];
   $priceFormatted = (float)str_replace('$', '', $price);
   $discription = $list['Description'];
 
@@ -100,34 +101,7 @@ if (isset($_REQUEST["submit"])) {
 </head>
 
 <body>
-  <!--<header class="header">
-    <div class="header-1">
-      <a href="#featured" class="logo"> <img src="image/logo.png" alt="" width="300" height="80"> </a>
-      <form action="" class="search-form-x">
-        <input type="search" id="srch" placeholder="search here...">
-        <label for="search-box" class="fas fa-search"></label>
-      </form>
-
-      <div class="icons">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="shopping-cart.php" class="fas fa-shopping-cart"></a>
-        <a href="signin.php">
-          <div id="login-btn" class="fas fa-user"></div>
-        </a>
-      </div>
-
-    </div>
-
-    <div class="header-2">
-      <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="product.php">product</a>
-        <a href="about.php">about</a>
-        <a href="contact.php">contact</a>
-
-      </nav>
-    </div>
-  </header> -->
+ 
 
   <section class="bg-sand padding-large">
     <div class="container">
@@ -141,6 +115,9 @@ if (isset($_REQUEST["submit"])) {
           <div class="product-detail">
             <h1><?php echo $name ?></h1>
             <span class="price colored"><?php echo $price; ?></span>
+            <br>
+            <h3>Author</h3>
+            <h4 ><?php echo $author; ?></h4>
             <p>
               <?php echo $discription; ?>
             </p>
