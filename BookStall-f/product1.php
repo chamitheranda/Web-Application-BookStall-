@@ -1,40 +1,57 @@
 <?php
+include "./header.php" ;
 include "dbconnection.php";
-include "./sessions.php";
 
-$bookName = $_REQUEST['name'];
-$sql1 = "SELECT * FROM featured WHERE name='" . $bookName . "' ";
-$stmt1 = $con->prepare($sql1);
-$stmt1->execute();
-$list = $stmt1->fetch();
-$img = $list['img'];
-$name = $list['name'];
-$price = $list['current_price'];
-$priceFormatted = (int)str_replace('$', '', $price);
-$discription = $list['discription'];
+$price= "" ;
 
-if (isset($_REQUEST["add-to-cart"])) {
-  if (!$_REQUEST["qty"]) {
+if(isset($_POST['price'])){
+  $price = $_POST['price'];
+}
+
+  $bookName = $_REQUEST['name'];
+  $sql1 = "SELECT * FROM books WHERE title ='" . $bookName . "' ";
+  $stmt1 = $con->prepare($sql1);
+  $stmt1->execute();
+  $list = $stmt1->fetch();
+  $img = $list['picture'];
+  $name = $list['title'];
+  $price = $list['Price'];
+  $author=$list['Author'];
+  $priceFormatted = (float)str_replace('$', '', $price);
+  $discription = $list['Description'];
+
+if(isset($_REQUEST["add-to-cart"])) {
+  if(!$_REQUEST["qty"]) {
     echo "<script type='text/javascript'>alert('Please select quantity');</script>";
+    
   } else {
-    $bname = $_REQUEST['name'];
-    $qty = $_REQUEST['qty'];
+    $sql3 = "SELECT * FROM cart WHERE bname ='$name'";
+    $stmt3 = $con->prepare($sql3);
+    $stmt3->execute();
+    $list2 = $stmt3->fetch();
+    
+    if(is_array($list2)) {
+      $oldQty = $list2['qty'];
+    } else {
+      $oldQty = 0;
+    }
 
+    $currentQty = (int)$_REQUEST['qty'];
+    $newQty=$oldQty+$currentQty;
     $userEmail = $_SESSION["useremail"];
-    //var_dump($username);
-    $sql = "SELECT EXISTS (SELECT * FROM cart WHERE userEmail='$userEmail' AND bname='$bname') FROM cart";
+
+    $sql = "SELECT EXISTS (SELECT * FROM cart WHERE userEmail='$userEmail' AND bname='$name') FROM cart";
     $stmt = $con->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll();
-    //var_dump($result[0][0]);
-
+    
     if ($_SESSION['useremail']) {
       if ((int)$result[0][0]) {
-        $sql22 = "UPDATE cart SET qty = '$qty'  WHERE bname ='$bname' AND userEmail='$userEmail'";
+        $sql22 = "UPDATE cart SET qty = '$newQty'  WHERE bname ='$name' AND userEmail='$userEmail'";
         $stmt22 = $con->prepare($sql22);
         $stmt22->execute();
       } else {
-        $sql23 = "INSERT INTO cart (bname, bprice, qty,userEmail) VALUES ('$bname', '$priceFormatted', '$qty','$userEmail')";
+        $sql23 = "INSERT INTO cart (bname, bprice, qty,userEmail) VALUES ('$name', '$priceFormatted', '$currentQty','$userEmail')";
         $stmt23 = $con->prepare($sql23);
         $stmt23->execute();
       }
@@ -52,14 +69,12 @@ if (isset($_REQUEST["submit"])) {
   $stmt3 = $con->prepare($sql3);
   $stmt3->execute();
 }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!<head>
   <title>BookStall</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,36 +101,8 @@ if (isset($_REQUEST["submit"])) {
 </head>
 
 <body>
-  <!-- <header class="header">
-    <div class="header-1">
-      <a href="#featured" class="logo"> <img src="image/logo.png" alt="" width="300" height="80"> </a>
-      <form action="" class="search-form-x">
-        <input type="search" id="srch" placeholder="search here...">
-        <label for="search-box" class="fas fa-search"></label>
-      </form>
+ 
 
-      <div class="icons">
-        <a href="#" class="fas fa-heart"></a>
-        <a href="shopping-cart.php" class="fas fa-shopping-cart"></a>
-        <a href="signin.php">
-          <div id="login-btn" class="fas fa-user"></div>
-        </a>
-      </div>
-
-    </div>
-
-    <div class="header-2">
-      <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="product.php">product</a>
-        <a href="about.php">about</a>
-        <a href="contact.php">contact</a>
-
-      </nav>
-    </div>
-  </header> -->
-
-  <?php include "./header.php" ?>
   <section class="bg-sand padding-large">
     <div class="container">
       <div class="row">
@@ -128,17 +115,20 @@ if (isset($_REQUEST["submit"])) {
           <div class="product-detail">
             <h1><?php echo $name ?></h1>
             <span class="price colored"><?php echo $price; ?></span>
+            <br>
+            <h3>Author</h3>
+            <h4 ><?php echo $author; ?></h4>
             <p>
               <?php echo $discription; ?>
             </p>
+          
 
-
-            <form method="post" name="addToCart">
-              <input type="number" min="0" max="15" placeholder="select quantity" style="width: 150px;" name="qty" id="qty-enter">
-              <br>
-              <button type="submit" name="add-to-cart" class="button" id="add-cart-itm" onClick="validateAddToCart()">Add to cart</button>
+        <form method="post" name="addToCart" >
+            <input type="number" min="0" max="15" placeholder="select quantity" style="width: 150px;" name="qty" id="qty-enter">
+            <br>
+            <button type="submit" name="add-to-cart" class="button" id="add-cart-itm" onClick="validateAddToCart()" >Add to cart</button>
             </form>
-          </div>
+            </div>
         </div>
 
       </div>
@@ -258,21 +248,23 @@ if (isset($_REQUEST["submit"])) {
     let email = "";
     let oldQty = "";
     let allQty = 0;
+    
   </script>
 
-  <script type="text/javascript">
-    function validateAddToCart() {
-      if (!$qty) {
-        alert('please select the quantity !');
-      } else {
-        alert('items added to cart sucessfully !');
+<script type="text/javascript">
+              function validateAddToCart() {
+                        if(!$qty){
+                          alert ('please select the quantity !');
+                        }else{
+                          alert ('items added to cart sucessfully !');
 
 
+                          
+                        }
+                       
+                      }
 
-      }
-
-    }
-  </script>
+            </script>
 </body>
 
 </html>
