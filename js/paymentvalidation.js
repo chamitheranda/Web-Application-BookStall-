@@ -56,7 +56,7 @@ function validateCardNumber() {
 function validateCvvNumber() {
   var cvvnumber = document.getElementById("cvv").value;
   var cvvNumberError = document.getElementById("cvvNumberError");
-  var cvvregex = /^[0-9]{3, 4}$/;
+  var cvvregex = /^[0-9]{3,4}$/;
 
   if (cvvnumber == "") {
       cvvNumberError.textContent = "cvv Number is required.";
