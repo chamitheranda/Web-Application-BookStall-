@@ -1,0 +1,525 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="./Responsive Admin_files/style.css">
+</head>
+
+<body>
+    <script>
+    </script>
+
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li id="home-btn">
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-book" aria-hidden="true"></i>
+                        </span>
+                        <span class="title">
+                            <h2>Bookstall</h2>
+                        </span>
+                    </a>
+                </li>
+                <li id="dash-reload" class="">
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="users-menu linker" id="users-menu"><a href="#">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="title">Users</span>
+                    </a>
+                </li>
+                <li class="books-menu linker" id="books-menu"><a href="#">
+                        <span class="icon"><i class="fa fa-archive" aria-hidden="true"></i></span>
+                        <span class="title">Books</span>
+                    </a>
+                </li>
+                <li class="categories-menu linker" id="categories-menu"><a href="#">
+                        <span class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+                        <span class="title">Categories</span>
+                    </a>
+                </li>
+                <li class="settings-menu linker" id="settings-menu"><a href="#">
+                        <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                        <span class="title">Account Settings</span>
+                    </a>
+                </li>
+
+                <li class="admins-menu linker" id="admins-menu"><a href="#">
+                        <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="title">Administrators</span>
+                    </a>
+                </li>
+                <li class="signout-menu" id="sub"><a href="#">
+                        <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                        <span class="title">Sign out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main home">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleHome()"></div>
+                <div class="search">
+                    <label>
+
+                    </label>
+                </div>
+                <div class="user">
+                    <img src="./Responsive Admin_files/user.png">
+                </div>
+            </div>
+            <div class="init-content">
+                <div class="cardBox">
+
+
+
+                    <h1>Welcome Admin69!</h1>
+                </div>
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Website statistics</h2>
+
+                        </div>
+                        <table>
+
+                            <tbody>
+                                <tr>
+                                    <td>Total number of books</td>
+
+                                    <td> </td>
+                                    <td><span class="status delivered">1599</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total number of users</td>
+                                    <td> </td>
+
+                                    <td><span class="status Pending">100</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total sales</td>
+
+                                    <td> </td>
+                                    <td><span class="status return">$120,000</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total number of categories</td>
+
+                                    <td> </td>
+                                    <td><span class="status inprogress">150</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total number of administrators</td>
+
+                                    <td> </td>
+                                    <td><span class="status delivered">5</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="main  users-menu menu-content" id="users-menu-ct">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()"></div>
+                <div class="search">
+                    <label>
+
+                    </label>
+                </div>
+                <div class="user">
+                    <img src="./Responsive Admin_files/user.png">
+                </div>
+            </div>
+            <!---- End -->
+            <div>
+
+                <div class="cardBox">
+                    <div class="card">
+                        <div>
+                            <div class="numbers">1,042</div>
+                            <div class="cardName">Users</div>
+                        </div>
+                        <div class="iconBox">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>
+                            <div class="numbers">$800</div>
+                            <div class="cardName">Total Sales</div>
+                        </div>
+                        <div class="iconBox">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Users</h2>
+                            <div class="search-holder">
+
+                                <div class="search">
+                                    <label>
+                                        <input type="text" placeholder="Enter user ID, name or email">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+
+                            </div>
+                            <a href="#" class="btn">Search</a>
+                        </div>
+                        <div style="overflow-x: auto;">
+
+                            <div class="grid users-pg">
+                                <div class="grid-item header">User ID</div>
+                                <div class="grid-item header">Name</div>
+                                <div class="grid-item header">Account Status</div>
+                                <div class="grid-item header">Email</div>
+                                <div class="grid-item header">Total Purchases</div>
+                                <div class="grid-item header">Billing address</div>
+                                <div class="grid-item header">Phone number</div>
+                                <div class="grid-item header">Transactions</div>
+                                <div class="grid-item header">Change account status</div>
+                                <div class="grid-item">101</div>
+                                <div class="grid-item">John Doe</div>
+                                <div class="grid-item"><span class="status delivered">Active</span></div>
+                                <div class="grid-item">admin@mail.com</div>
+                                <div class="grid-item">4500 LKR</div>
+                                <div class="grid-item">#456, Filling Rd, Df, Colombo 00100</div>
+                                <div class="grid-item">+94777123456</div>
+                                <div class="grid-item"><span class="status pending action-btn">View all</span></div>
+                                <div class="grid-item"><span class="status return action-btn">Deactivate</span></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="main menu-content categories-menu" id="categories-menu-ct" style="height: 100vh">
+            <!--             .menu-content
+ -->
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()"></div>
+                <div class="search">
+                    <label>
+
+                    </label>
+                </div>
+                <div class="user">
+                    <img src="./Responsive Admin_files/user.png">
+                </div>
+            </div>
+            <!---- End -->
+            <div>
+
+                <div class="cardBox">
+                    <div class="card">
+                        <div>
+                            <div class="numbers">1,042</div>
+                            <div class="cardName">Books</div>
+                        </div>
+                        <div class="iconBox">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>
+                            <div class="numbers">800</div>
+                            <div class="cardName">Total Categories</div>
+                        </div>
+                        <div class="iconBox">
+                            <i class="fa fa-file" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Categories</h2>
+
+                            <div class="search-holder" style="">
+
+                                <div class="search">
+                                    <label>
+                                        <input type="text" placeholder="Enter label name and press enter to Search">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div style="overflow-x: auto;">
+
+                            <div class="grid categories-pg">
+                                <div class="grid-item header">Category ID</div>
+                                <div class="grid-item header">Category</div>
+                                <div class="grid-item header">Category Status</div>
+                                <div class="grid-item header">Added by</div>
+                                <div class="grid-item header"># of Books</div>
+                                <div class="grid-item header">Books</div>
+                                <div class="grid-item header">Change category status</div>
+                                <div class="grid-item">101</div>
+                                <div class="grid-item">Thriller</div>
+                                <div class="grid-item"><span class="status delivered">Active</span></div>
+                                <div class="grid-item">admin69</div>
+                                <div class="grid-item">45</div>
+                                <div class="grid-item"><span class="status pending action-btn">View all</span></div>
+                                <div class="grid-item"><span class="status return action-btn">Deactivate</span></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Add a new category</h2>
+
+
+                        </div>
+                        <div class="search-holder">
+
+                            <div style="display: flex;padding-top: 1rem;">
+                                <label>
+                                    <input class="input-text input-text--primary-style" type="text" id="reg-fname"
+                                        placeholder="Romance"> <span class="status return action-btn">Add
+                                        category</span>
+
+                                </label>
+                            </div>
+
+                        </div>
+                        <div style="overflow-x: auto;">
+
+
+                            <h2></h2>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="main menu-content books-menu" id="books-menu-ct" style="height: 100vh">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()"></div>
+                <div class="search">
+                    <label>
+
+                    </label>
+                </div>
+                <div class="user">
+                    <img src="./Responsive Admin_files/user.png">
+                </div>
+            </div>
+            <!---- End -->
+            <div>
+
+                <div class="cardBox">
+                    <div class="card">
+                        <div>
+                            <div class="numbers">1,042</div>
+                            <div class="cardName">books</div>
+                        </div>
+                        <div class="iconBox">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>
+                            <div class="numbers">$1,800</div>
+                            <div class="cardName">Purchases</div>
+                        </div>
+                        <div class="iconBox">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>Books</h2>
+                            <div class="search-holder">
+
+                                <div class="search">
+                                    <label>
+                                        <input type="text" placeholder="Enter user ID, name or email">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+
+                            </div>
+                            <a href="#" class="btn">Search</a>
+                        </div>
+                        <div style="overflow-x: auto;">
+
+                            <div class="grid books-pg">
+                                <div class="grid-item header">ISBN</div>
+                                <div class="grid-item header">Title</div>
+                                <div class="grid-item header">Picture</div>
+                                <div class="grid-item header">Author(s)</div>
+                                <div class="grid-item header">Date Added</div>
+                                <div class="grid-item header">Book Status</div>
+                                <div class="grid-item header">Added by</div>
+                                <div class="grid-item header">Purchased users</div>
+                                <div class="grid-item header">Purchased times</div>
+                                <div class="grid-item header">Categories</div>
+                                <div class="grid-item header">Price</div>
+                                <div class="grid-item header">Change status</div>
+                                <div class="grid-item header">Description</div>
+                                <div class="grid-item header">Year Published</div>
+                                <div class="grid-item header">Language</div>
+                                <div class="grid-item">0062457713</div>
+                                <div class="grid-item">00</div>
+                                <div class="grid-item">2022/12/12</div>
+                                <div class="grid-item">2022/12/12</div>
+                                <div class="grid-item"><span class="status delivered">Active</span></div>
+                                <div class="grid-item">admin@mail.com</div>
+                                <div class="grid-item">4500 LKR</div>
+                                <div class="grid-item">#456, Filling Rd, Df, Colombo 00100</div>
+                                <div class="grid-item">+94777123456</div>
+                                <div class="grid-item"><span class="status pending action-btn">View all</span></div>
+                                <div class="grid-item"><span class="status return action-btn">Deactivate</span></div>
+                                <div class="grid-item">#456, Filling Rd, Df, Colombo 00100</div>
+                                <div class="grid-item">#456, Filling Rd, Df, Colombo 00100</div>
+                                <div class="grid-item">#456, Filling Rd, Df, Colombo 00100</div>
+                                <div class="grid-item">#456, Filling Rd, Df, Colombo 00100</div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="main menu-content settings-menu" id="settings-menu-ct" style="height: 100vh">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()"></div>
+                <div class="search">
+                    <label>
+
+                    </label>
+                </div>
+                <div class="user">
+                    <img src="./Responsive Admin_files/user.png">
+                </div>
+            </div>
+            <!---- End -->
+        </div>
+
+        <div class="main menu-content admins-menu" style="height: 100vh" id="admins-menu-ct">
+            <div class="topbar">
+                <div class="toggle" onclick="toggleMenu()"></div>
+                <div class="search">
+                    <label>
+
+                    </label>
+                </div>
+                <div class="user">
+                    <img src="./Responsive Admin_files/user.png">
+                </div>
+            </div>
+            <!---- End -->
+        </div>
+    </div>
+
+    <script>
+
+        let elState = ""; let divC;
+        const allNav = document.querySelector(".navigation");
+        allNav.addEventListener("click", (ev) => {
+            let id = "";
+            let evTarget = ev.target.closest("li")
+            if (ev.target.closest("li").className.includes("linker")) {
+                if (elState) {
+                    console.log(elState)
+                    document.getElementById(elState).classList.remove("activated")
+
+                }
+                id = evTarget.id + "-ct"
+                divC = document.getElementById(id)
+                if (elState == id) {
+                    id = ""
+                }
+                else { elState = id }
+                divC.classList.toggle("activated")
+                toggleMenu();
+            }
+        })
+        const dashReload = document.getElementById("dash-reload")
+        dashReload.addEventListener("click", () => {
+            window.location.reload();
+        })
+        const homeBtn = document.getElementById("home-btn")
+        homeBtn.addEventListener("click", () => {
+            window.location.replace("/");
+
+        })
+
+
+
+        const toggleMenu = () => {
+            console.log(screen.width)
+
+            if (screen.width < 993) {
+                let elState2 = elState.replace("-ct", "")
+                console.log(elState2)
+
+                let toggle = document.querySelector(".toggle");
+                let navigation = document.querySelector(".navigation");
+                elState2 = document.querySelector(elState2)
+                toggle.classList.toggle("active");
+                navigation.classList.toggle("active");
+                if (elState2) {
+                    elState2.classList.toggle("active");
+                }
+                else {
+                    document.querySelector(".main").classList.toggle("active");
+                }
+
+            }
+        }
+        function toggleHome() {
+            console.log(screen.width)
+            if (screen.width < 993) {
+                let toggle = document.querySelector(".toggle");
+                let navigation = document.querySelector(".navigation");
+                let main = document.querySelector(".main");
+                toggle.classList.toggle("active");
+                navigation.classList.toggle("active");
+                main.classList.toggle("active");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

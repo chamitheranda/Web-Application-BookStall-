@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 18, 2023 at 09:31 PM
+-- Generation Time: Jan 19, 2023 at 02:39 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `bookstall`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `pass`, `mail`) VALUES
+(1, 'admin1', '123', 'admin@admin.lk');
 
 -- --------------------------------------------------------
 
@@ -81,7 +102,6 @@ CREATE TABLE IF NOT EXISTS `cart` (
 INSERT INTO `cart` (`id`, `bname`, `qty`, `userEmail`, `bprice`) VALUES
 (4, 'Sister', 6, 'kasun@gmail.com', 13),
 (5, 'Slayer', 4, 'kasun@gmail.com', 15),
-(6, 'Butterfly Lion', 4, 'kasun@gmail.com', 15),
 (23, 'Sample Text', 28, 'kasun@gmail.com', 13.99);
 
 -- --------------------------------------------------------
